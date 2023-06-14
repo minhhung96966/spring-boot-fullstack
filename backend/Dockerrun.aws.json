@@ -1,0 +1,23 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "amigoscode-api",
+      "image": "nmhung1/spring-boot-example:latest",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 8080
+        }
+      ],
+      "environment": [
+        {
+          "name": "SPRING_DATASOURCE_URL",
+          "value": "jdbc:postgresql://awseb-e-ki8ymufrf2-stack-awsebrdsdatabase-2gaawg408xjc.cvqlwpv431eq.ap-southeast-1.rds.amazonaws.com:5432/customer"
+        }
+      ]
+    }
+  ]
+}
