@@ -7,6 +7,11 @@
 */*.iws
 */.idea/
 
+*.iml
+*.ipr
+*.iws
+.idea/
+
 ### Gradle ###
 # Exclude Folder List #
 */.gradle/
