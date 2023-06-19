@@ -13,6 +13,12 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	dockerUsername = 'nmhung1'
+	dockerImageName = 'amigoscode-api'
+	dockerImageTag = project.properties['dockerImageTag'] ?: version
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -39,7 +45,7 @@ jib {
 		}
 	}
 	to {
-		image = 'docker.io/nmhung1/' + project.name + ':' + version
+		image = 'docker.io/' + dockerUsername + '/' + dockerImageName + ':' + dockerImageTag
 		tags = ['latest']
 
 	}
