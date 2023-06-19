@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "amigoscode-api",
-      "image": "nmhung1/spring-boot-example:latest",
+      "image": "nmhung1/amigoscode-api:latest",
       "essential": true,
       "memory": 512,
       "portMappings": [
