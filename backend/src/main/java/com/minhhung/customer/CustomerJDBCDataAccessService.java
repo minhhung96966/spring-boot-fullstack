@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository("jdbc")
-public class CustomerJDBCDataAccessService implements CustomerDao{
+public class CustomerJDBCDataAccessService implements CustomerDao {
 
     private final JdbcTemplate jdbcTemplate;
     private final CustomerRowMapper customerRowMapper;
@@ -29,7 +29,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     }
 
     @Override
-    public Optional<Customer> selectCustomerById(Integer id) {
+    public Optional<Customer> selectCustomerById(Long id) {
         String sql = """
                 SELECT id, name, email, age
                 FROM customer
@@ -55,7 +55,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     }
 
     @Override
-    public boolean existsPersonWithEmail(String email) {
+    public boolean existsCustomerWithEmail(String email) {
         String sql = """
                 SELECT count(id)
                 FROM customer
@@ -66,7 +66,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     }
 
     @Override
-    public boolean existsPersonWithId(Integer id) {
+    public boolean existsCustomerWithId(Long id) {
         String sql = """
                 SELECT count(id)
                 FROM customer
@@ -77,7 +77,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     }
 
     @Override
-    public void deleteCustomerById(Integer id) {
+    public void deleteCustomerById(Long id) {
         var sql = """
                 DELETE
                 FROM customer
